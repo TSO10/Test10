@@ -1,0 +1,14 @@
+﻿@inherits UmbracoTemplatePage
+@{
+	Layout = "subMaster.cshtml";
+}
+@Umbraco.Field("bodyText")
+@section sidebar 
+{
+	<ul class ="nav nav-list">
+		<li><a href="#">Item 1</a></li>
+		<li><a href="#">Item 2</a></li>
+		<li><a href="#">Item 3</a></li>
+	</ul>
+		
+}

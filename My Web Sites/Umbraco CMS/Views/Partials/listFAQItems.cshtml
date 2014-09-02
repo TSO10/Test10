@@ -1,0 +1,11 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+	
+<ul>
+	@foreach (var faq  in CurrentPage.Children)
+	{
+		<li>
+			<a href="@faq.Url"><h3>@faq.Name</h3></a>
+			</li>
+	}
+</ul>

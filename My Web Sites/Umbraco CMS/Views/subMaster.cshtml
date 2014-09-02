@@ -1,0 +1,23 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+<div class="span9">
+	<div class="page-header">
+		<h1>@Umbraco.Field("pageName")</h1>
+	</div>
+		
+	@RenderBody()
+
+	<p class="footer">
+		@Umbraco.Field("#Updated by") 
+		@Umbraco.Field("writerName")
+		on 
+		@Umbraco.Field("updateDate", formatAsDate: true)
+	</p>
+</div>
+		
+<div class = "span3 sidebar">
+		<h3>@Umbraco.Field("sectionName", altText: "in this section", recursive: true)</h3>
+		@RenderSection("sidebar", false)
+</div>

@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+
+	@{
+		var promoItems = CurrentPage.PromoRepositories.First().PromoItems.Where("Visible");
+	}
+
+	
+<div id="myCarousel" class="carousel slide">
+	<div class="carousel-inner">
+		@foreach (var item in promoItems)
+		{
+		<div class="@item.IsFirst("active")item">
+			<div class="slide">
+				<img src="@item.Image" alt="@item.Name" />
+				<h1>@item.Name</h1>
+				<h2>@item.Subheading</h2>
+                <p>@item.Describtion</p>
+				@if (item.HasValue("link"))
+				{
+				<a href="@Umbraco.Content(item.Link).Url" class="btn btn-primary">Read more</a>
+				}
+			</div>
+		</div>
+		}
+	</div>
+	<!-- Carousel nav -->
+	<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+	<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
